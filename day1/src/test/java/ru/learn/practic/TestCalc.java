@@ -38,4 +38,21 @@ public class TestCalc {
         Assert.assertEquals(resultInt.isValid, true);
         Assert.assertEquals(resultInt.result, 1);
     }
+
+    @Test
+    public void testAddMinusMinimum(){
+        ResultInt resultInt =  calc.add( -2147483647, -2);
+        Assert.assertEquals(resultInt.isValid, false);
+        Assert.assertEquals(resultInt.result, 0);
+    }
+
+    @Test
+    public void testAddMax(){
+        ResultInt resultInt =  calc.add( 2147483647, 2);
+        Assert.assertEquals(resultInt.isValid, false);
+        Assert.assertEquals(resultInt.result, 0);
+    }
+
+
+
 }

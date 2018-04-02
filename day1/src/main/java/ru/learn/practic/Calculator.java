@@ -8,14 +8,16 @@ import ru.learn.practic.result.ResultInt;
 public class Calculator {
 
     public ResultInt add(int var1, int var2) {
-        if( (long)var1 + (long)var2 > (long)Integer.MAX_VALUE) {
+        if( (long)var1 + (long)var2 > (long)Integer.MAX_VALUE ||
+                (long)var1 + (long)var2 < (long)Integer.MIN_VALUE ) {
             return new ResultInt(false, 0);
         }
         return new ResultInt(true,var1 + var2);
     }
 
     public ResultInt sub(int var1, int var2) {
-        if( (long)var1 - (long)var2 < (long)Integer.MIN_VALUE) {
+        if( (long)var1 - (long)var2 < (long)Integer.MIN_VALUE ||
+                (long)var1 + (long)var2 > (long)Integer.MAX_VALUE ) {
             return new ResultInt(false, 0);
         }
         return new ResultInt(true,var1 - var2);
