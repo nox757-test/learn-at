@@ -1,4 +1,4 @@
-package ru.learnTest;
+package ru.learnTest.test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +14,8 @@ import static org.junit.Assert.fail;
 /**
  * Created by user on 04.04.2018.
  */
-public class TestRecorder {
+
+public class TestContragent {
     private WebDriver driver;
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -30,25 +31,20 @@ public class TestRecorder {
         driver.get("http://192.168.14.7:8080/reckondemo/login.php");
         fillEdit(By.id("login"), "testuser7");
         fillEdit(By.id("password"), "12345777");
-        clickButton(By.id("submit"));
-        clickLink(By.id("contr_menu"));
-        clickButton(By.xpath("//input[@value='Создать']"));
+        driver.findElement(By.id("submit")).click();
+        driver.findElement(By.id("contr_menu")).click();
+        driver.findElement(By.xpath("//input[@value='Создать']")).click();
+        driver.findElement(By.name("description")).click();
         fillEdit(By.name("description"), "name");
         fillEdit(By.name("name"), "name org");
         fillEdit(By.name("account"), "012345678901234567890");
         fillEdit(By.name("bank_name"), "name bank");
         fillEdit(By.name("bank_account"), "98765432109876543210");
         fillEdit(By.name("bank_bic"), "987654321");
+        driver.findElement(By.xpath("//input[@value='Создать']")).click();
+        driver.findElement(By.name("account")).click();
         fillEdit(By.name("account"), "01234567890123456789");
-        clickButton(By.xpath("//input[@value='Создать']"));
-    }
-
-    private void clickLink(By linkLocator) {
-        driver.findElement(linkLocator).click();
-    }
-
-    private void clickButton(By buttonLocator) {
-        driver.findElement(buttonLocator).click();
+        driver.findElement(By.xpath("//input[@value='Создать']")).click();
     }
 
     private void fillEdit(By locator, String text) {

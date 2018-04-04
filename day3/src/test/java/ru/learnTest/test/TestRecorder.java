@@ -1,4 +1,4 @@
-package ru.learnTest;
+package ru.learnTest.test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +14,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by user on 04.04.2018.
  */
-public class TestContragent2 {
+public class TestRecorder {
     private WebDriver driver;
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -35,10 +35,11 @@ public class TestContragent2 {
         clickButton(By.xpath("//input[@value='Создать']"));
         fillEdit(By.name("description"), "name");
         fillEdit(By.name("name"), "name org");
-        fillEdit(By.name("account"), "01234567890123456789");
+        fillEdit(By.name("account"), "012345678901234567890");
         fillEdit(By.name("bank_name"), "name bank");
         fillEdit(By.name("bank_account"), "98765432109876543210");
         fillEdit(By.name("bank_bic"), "987654321");
+        fillEdit(By.name("account"), "01234567890123456789");
         clickButton(By.xpath("//input[@value='Создать']"));
     }
 
@@ -51,7 +52,6 @@ public class TestContragent2 {
     }
 
     private void fillEdit(By locator, String text) {
-        //driver.findElement(locator).click();
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
     }
